@@ -46,8 +46,8 @@ echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 if [ -z "$INPUT_USE_RSYNC" ]
 then
-  cp -R "$INPUT_PROMOTE_TAG" "$DEST_COPY_TAG"
-  cp -R "$INPUT_PROMOTE_ENV" "$DEST_COPY_ENV"
+  cp -R "$INPUT_SOURCE_PROMOTE_TAG" "$DEST_COPY_TAG"
+  cp -R "$INPUT_SOURCE_PROMOTE_ENV" "$DEST_COPY_ENV"
 
 else
   echo "rsync mode detected"
