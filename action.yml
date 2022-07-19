@@ -1,9 +1,6 @@
 name: 'Push a file to another repository'
 description: 'Used for pushing a copy of a file to another repository'
 inputs:
-  source_file:
-    description: 'Source file from the origin directory'
-    required: false
   source_promote_tag:
     description: 'Source file from the origin directory'
     required: true
@@ -48,8 +45,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.source-file }}
-    - ${{ inputs.source-promote-env }}
+    - ${{ inputs.source-promote-tag}}
     - ${{ inputs.source-promote-env }}
     - ${{ inputs.destination-repo }}
     - ${{ inputs.destination-folder-tag }}
