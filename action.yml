@@ -13,9 +13,12 @@ inputs:
   destination_repo:
     description: 'Destination repository'
     required: true
-  destination_folder:
+  destination_folder_tag:
     description: 'Directory to push the file to'
     required: false
+  destination_folder_env:
+    description: 'Directory to push the file to'
+    required: true
   user_email:
     description: 'Email for the git commit'
     required: true
@@ -49,7 +52,8 @@ runs:
     - ${{ inputs.source-promote-env }}
     - ${{ inputs.source-promote-env }}
     - ${{ inputs.destination-repo }}
-    - ${{ inputs.destination-folder }}
+    - ${{ inputs.destination-folder-tag }}
+    - ${{ inputs.destination-folder-env }}
     - ${{ inputs.user-email }}
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
