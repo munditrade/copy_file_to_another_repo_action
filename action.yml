@@ -46,8 +46,8 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.source-file }}
-    - ${{ inputs.source_promote_env }}
-    - ${{ inputs.source_promote_env }}
+    - ${{ inputs.source-promote-env }}
+    - ${{ inputs.source-promote-env }}
     - ${{ inputs.destination-repo }}
     - ${{ inputs.destination-folder }}
     - ${{ inputs.user-email }}
