@@ -3,13 +3,13 @@
 set -e
 set -x
 
-if [ -z "$INPUT_PROMOTE_TAG" ]
+if [ -z "$INPUT_SOURCE_PROMOTE_TAG" ]
 then
   echo "Source file must be defined"
   return 1
 fi
 
-if [ -z "$INPUT_PROMOTE_ENV" ]
+if [ -z "$INPUT_SOURCE_PROMOTE_ENV" ]
 then
   echo "Source file must be defined"
   return 1
