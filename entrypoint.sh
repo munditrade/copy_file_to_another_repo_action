@@ -3,7 +3,13 @@
 set -e
 set -x
 
-if [ -z "$INPUT_SOURCE_FILE" ]
+if [ -z "$INPUT_PROMOTE_TAG" ]
+then
+  echo "Source file must be defined"
+  return 1
+fi
+
+if [ -z "$INPUT_PROMOTE_ENV" ]
 then
   echo "Source file must be defined"
   return 1
@@ -32,17 +38,19 @@ then
   echo "Setting new filename: ${INPUT_RENAME}"
   DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER/$INPUT_RENAME"
 else
-  DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
+  DEST_COPY_TAG="$CLONE_DIR/$INPUT_DESTINATION_FOLDER_TAG"
+  DEST_COPY_ENV="$CLONE_DIR/$INPUT_DESTINATION_FOLDER_ENV"
 fi
 
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 if [ -z "$INPUT_USE_RSYNC" ]
 then
-  cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
+  cp -R "$INPUT_PROMOTE_TAG" "$DEST_COPY_TAG"
+  cp -R "$INPUT_PROMOTE_ENV" "$DEST_COPY_ENV"
+
 else
   echo "rsync mode detected"
-  rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
 fi
 
 cd "$CLONE_DIR"
