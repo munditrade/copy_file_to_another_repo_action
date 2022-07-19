@@ -5,13 +5,13 @@ set -x
 
 if [ -z "$INPUT_SOURCE_PROMOTE_TAG" ]
 then
-  echo "Source file must be defined"
+  echo "Source file Tag must be defined"
   return 1
 fi
 
 if [ -z "$INPUT_SOURCE_PROMOTE_ENV" ]
 then
-  echo "Source file must be defined"
+  echo "Source file Env must be defined"
   return 1
 fi
 
