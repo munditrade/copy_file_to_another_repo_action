@@ -43,7 +43,8 @@ else
 fi
 
 echo "Copying contents to git repo"
-mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
+mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER_TAG
+mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER_ENV
 if [ -z "$INPUT_USE_RSYNC" ]
 then
   cp -R "$INPUT_SOURCE_PROMOTE_TAG" "$DEST_COPY_TAG"
